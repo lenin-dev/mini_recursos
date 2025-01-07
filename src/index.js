@@ -4,7 +4,6 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { Server } from 'socket.io';
 import routerVistas from './routers/pages.js';
-import { notFoundRouter, routeErrorHandling } from './middlewares/error.handler.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -20,8 +19,8 @@ app.use(express.json());
 
 routerVistas(app);
 
-app.use(notFoundRouter);
-app.use(routeErrorHandling);
+// app.use(notFoundRouter);
+// app.use(routeErrorHandling);
 
 server.listen(3000, () => {
     console.log('Server is running on port 3000');
