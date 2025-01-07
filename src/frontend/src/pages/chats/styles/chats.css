@@ -1,0 +1,212 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.ocultar {
+    display: none !important;
+}
+
+.ver {
+    display: flex;
+}
+
+.container {
+    background-color: rgb(66, 66, 66);
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.sidebar {
+    background-color: rgb(46, 46, 46);
+    width: 250px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    border-width: 1px;
+}
+
+.sidebar .header {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.sidebar .contacts {
+    margin: 15px;
+    height: auto;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.sidebar .contacts .contact {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    cursor: pointer;
+}
+
+.sidebar .contacts .contact .details {
+    margin-top: 4px;
+}
+
+.sidebar .contacts .contact .details div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.sidebar .contacts .contact .details div .estado {
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    margin-right: 6px;
+}
+
+.activo {
+    background-color: green;
+}
+
+.inactivo {
+    background-color: red;
+}
+
+.sidebar .contacts .contact img {
+    margin-right: 10px;
+    border-radius: 50px;
+}
+
+.btn {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 10px;
+  min-height: 20px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.btn:hover, .btn:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.enviarcolor {
+    background: #44913d;
+    border: 1px solid #44913d;
+    color: #ffffff;
+}
+
+.btn:active {
+  opacity: .5;
+}
+
+.chat-area {
+    background-color: rgb(241, 241, 241);
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.chat-area .header {
+    padding: 10px;
+    background-color: rgb(46, 46, 46);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 19px 19px 0 0;
+    color: #FFFFFF;
+}
+
+.chat-area .header img {
+    border-radius: 50px;
+    margin-right: 15px;
+}
+
+.chat-area .header button {
+    margin-left: auto;
+}
+
+.chat-area .messages {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-y: hidden;
+    overflow: auto;
+}
+
+.chat-area .messages .message {
+    align-self: flex-start;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #8f8888;
+    max-width: 320px;
+    height: auto;
+}
+
+.chat-area .messages .sent {
+    align-self: flex-end;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #a0d3d3;
+    max-width: 320px;
+    height: auto;
+}
+
+.chat-area .message-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 20px;
+}
+
+.chat-area .message-box .text-mensaje {
+    line-height: 10px;
+    min-height: 20px;
+    padding: 5px 10px;
+    width: auto;
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+
+/* @media (max-width: 461px) {
+    .chat-area {
+        display: none;
+    }
+} */
