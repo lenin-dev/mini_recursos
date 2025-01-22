@@ -2,14 +2,21 @@ import express from 'express';
 import http from 'http';
 import morgan from 'morgan';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import { Server } from 'socket.io';
 import routerVistas from './routers/pages.js';
+import { connectDB } from './config/mongo.js';
 
 const app = express();
+dotenv.config();
+
+connectDB();
+
 const server = http.createServer(app);
+const PORT = process.env.PORT || 4000;
 const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:3000',
+        origin: 'http://localhost:4000',
     },
 });
 
@@ -19,9 +26,6 @@ app.use(express.json());
 
 routerVistas(app);
 
-// app.use(notFoundRouter);
-// app.use(routeErrorHandling);
-
-server.listen(3000, () => {
-    console.log('Server is running on port 3000');
+server.listen(PORT, () => {
+    console.log('Server is running on port ' + PORT);
 });
