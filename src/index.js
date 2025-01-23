@@ -5,26 +5,24 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { Server } from 'socket.io';
 import routerVistas from './routers/pages.js';
-import { connectDB } from './config/mongo.js';
+import socketIO from './routers/io.js';
 
 const app = express();
 dotenv.config();
-
-connectDB();
-
 const server = http.createServer(app);
 const PORT = process.env.PORT || 4000;
+// permite que el servidor de WebSockets acepte conexiones desde el origen http://localhost:4000
 const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:4000',
+        origin: 'http://localhost:'+PORT,
     },
 });
-
 app.use(morgan("combined"));
 app.use(express.json());
 // app.use(cors(configCors));
 
 routerVistas(app);
+socketIO(io);
 
 server.listen(PORT, () => {
     console.log('Server is running on port ' + PORT);

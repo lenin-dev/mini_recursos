@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./styles/inicio.sesion.css">
+</head>
+<body>
+    <div class="container">
+        <form class="login-form" autocomplete="off">
+            <h2>Iniciar Sesión</h2>
+            <div class="input-group">
+                <label for="username">Nombre de usuario</label>
+                <input type="text" id="username" name="username" placeholder="Ingrese su nombre de usuario" required>
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./controller/login.controller.js"></script>
+</body>
+</html>

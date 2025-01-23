@@ -1,8 +1,13 @@
-
 export function notFoundRouter(req, res, next) {
     const error = new Error('Ruta no encontrada');
     error.status = 404;
     next(error);
+}
+
+export function createError(message, code) {
+    const error = new Error(message);
+    error.status = code;
+    throw error;
 }
 
 export function routeErrorHandling(err, req, res, next) {

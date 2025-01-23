@@ -14,26 +14,6 @@
                 <span>⚙️</span>
             </div>
             <div class="contacts">
-                <div class="contact">
-                    <img src="https://via.placeholder.com/50" height="50" width="50" alt="User">
-                    <div class="details">
-                        <h4>John Doe</h4>
-                        <div>
-                            <div class="estado activo"></div>
-                            <p>Online</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact">
-                    <img src="https://via.placeholder.com/50" height="50" width="50" alt="User">
-                    <div class="details">
-                        <h4>Jane Smith</h4>
-                        <div>
-                            <div class="estado activo"></div>
-                            <p>Online</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="chat-area">
@@ -55,7 +35,8 @@
         </div>
     </div>
 
-    <script src="./services/chat.controller.js"></script>
-    <script src="./services/mensajeria.controller.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./controller/chat.controller.js"></script>
+    <script src="./controller/mensajeria.controller.js"></script>
 </body>
 </html>
