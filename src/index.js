@@ -11,12 +11,20 @@ const app = express();
 dotenv.config();
 const server = http.createServer(app);
 const PORT = process.env.PORT || 4000;
+
+const corsOptions = {
+    origin: '*', // Puedes especificar la IP o dominio que debe tener acceso
+    methods: ['GET', 'POST']
+};
 // permite que el servidor de WebSockets acepte conexiones desde el origen http://localhost:4000
 const io = new Server(server, {
+    connectionStateRecovery: {},
     cors: {
-        origin: 'http://localhost:'+PORT,
+        origin: '*',
+        methods: ['GET', 'POST']
     },
 });
+app.use(cors(corsOptions));
 app.use(morgan("combined"));
 app.use(express.json());
 // app.use(cors(configCors));
