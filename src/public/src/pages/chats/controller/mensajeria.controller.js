@@ -1,5 +1,6 @@
 const socket = io();
 var user;
+const header        = document.querySelector('.header');
 const enviarMensaje = document.getElementById('mensaje_enviar');
 const messaje       = document.querySelector('.text-mensaje');
 // OBTENERLO DE LAS COOKIES
@@ -7,20 +8,20 @@ const cookies           = document.cookie.split('; ');
 const idUserCookie      = cookies.find(row => row.startsWith('id='));
 const usernameCookie    = cookies.find(row => row.startsWith('username='));
 const stateCookie       = cookies.find(row => row.startsWith('state='));
+const imagenCookie      = cookies.find(row => row.startsWith('img='));
+
 const idUser            = idUserCookie ? idUserCookie.split('=')[1] : null;
 const username          = usernameCookie ? usernameCookie.split('=')[1] : null;
+const imagen            = imagenCookie ? imagenCookie.split('=')[1] : null;
 const state             = stateCookie ? stateCookie.split('=')[1] : null
 if(username === null && state === null) {
     window.location.href = '../chats';
 }
-// const userId = '123'
-// socket.emit('userConnected', userId);
 
 socket.on('users', (data) => {
     user = data;
     contactLoader(data);
 });
-
 
 const usernameElement = document.querySelector('.username-chat');
 const observer = new MutationObserver(() => {
@@ -83,6 +84,18 @@ socket.on('newMessage', ({ senderId, content }) => {
 function contactLoader(users) {
     var contact = '';
     var userContacts = document.querySelector('.contacts');
+    header.innerHTML = `<div class="contact">
+                            <img src="${imagen}" class="imagen-perfil" height="50" width="50" alt="User">
+                            <div class="details">
+                                <h4>${username}</h4>
+                                <p class="idUsaer" hidden>${idUser}</p>
+                                <div>
+                                <div class="estado activo"></div>
+                                <p>${state ? 'Online' : 'Offline'}</p>
+                                </div>
+                            </div>
+                        </div>`;
+
     for(let i in users) {
         if(users[i]._id !== idUser) {
             contact += `<div class="contact">

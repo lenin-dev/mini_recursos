@@ -29,6 +29,7 @@ socket.on('loginUser', (data) => {
         document.cookie = `id=${data._id}; path=/;`;
         document.cookie = `username=${data.username}; path=/;`;
         document.cookie = `state=${data.state}; path=/;`;
+        document.cookie = `img=${data.imagen}; path=/;`;
         window.location.href = './chat.html';
     }
 });
